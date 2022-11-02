@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "/products_path", controller: "products", action: "list_products"
 
-  get "/product_1_path", controller: "products", action: "list_product_one"
+  get "one_product/:id", controller: "products", action: "one_product"
 
-  get "/product_2_path", controller: "products", action: "list_product_two"
+  # get "/product_1_path", controller: "products", action: "list_product_one"
 
-  get "/product_3_path", controller: "products", action: "list_product_three"
+  # get "/product_2_path", controller: "products", action: "list_product_two"
+
+  # get "/product_3_path", controller: "products", action: "list_product_three"
 end
