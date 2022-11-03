@@ -18,3 +18,16 @@ Content-Type: application/json
   "description": "TEST"
 }
 
+### PRODUCTS UPDATE
+
+PATCH http://localhost:3000/products/6.json
+Content-Type: application/json
+
+{
+  "name": "Air Bud VHS"
+}
+
+
+
+
+
