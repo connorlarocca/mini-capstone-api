@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.new(name: "Single Shoe", price: 29.99, image_url: "placeholder", description: "This luxurious single shoe, available in Left and Right foot orientation, can be yours. Purchasing 2 times is recommended.")
+    product = Product.new(name: params["name"], price: params["price"], image_url: params["image_url"], description: params["description"])
     product.save
     render json: product.as_json
   end
