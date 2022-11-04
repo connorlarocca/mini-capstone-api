@@ -27,6 +27,10 @@ Content-Type: application/json
   "name": "Air Bud VHS"
 }
 
+### PRODUCTS DELETE
+
+DELETE http://localhost:3000/products/7.json
+
 
 
 
