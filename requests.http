@@ -12,22 +12,20 @@ POST http://localhost:3000/products.json
 Content-Type: application/json
 
 {
-  "name": "TEST", 
-  "price": "TEST", 
+  "name": "new???",
+  "price": 19.99, 
   "image_url": "TEST", 
-  "description": "TEST"
+  "description": "a"
 }
 
 ### PRODUCTS UPDATE
 
-PATCH http://localhost:3000/products/8.json
+PATCH http://localhost:3000/products/13.json
 Content-Type: application/json
 
 {
-  "name": "Air Bud VHS",
-  "price": 5,
-  "image_url": "?",
-  "description": "AIR BUD VHS TOP DAWG LET'S GO"
+  "name": "",
+  "image_url": "?"
 }
 
 ### PRODUCTS DELETE
