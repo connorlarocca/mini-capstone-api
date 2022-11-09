@@ -9,6 +9,6 @@
     tax: product.tax,
     total: product.total,
     supplier: product.supplier,
-    image: product.images
+    image: product.images,
   }
 end

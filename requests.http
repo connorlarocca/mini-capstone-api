@@ -12,10 +12,10 @@ POST http://localhost:3000/products.json
 Content-Type: application/json
 
 {
-  "name": "new???",
-  "price": 19.99, 
-  "image_url": "TEST", 
-  "description": "a"
+  "name": "Nintendo Switch",
+  "price": 299.99, 
+  "description": "The Nintendo Switch. What else do I need to say?",
+  "supplier_id": 1
 }
 
 ### PRODUCTS UPDATE
@@ -31,6 +31,8 @@ Content-Type: application/json
 ### PRODUCTS DELETE
 
 DELETE http://localhost:3000/products/7.json
+
+
 
 
 
