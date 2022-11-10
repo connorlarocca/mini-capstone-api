@@ -24,13 +24,12 @@ PATCH http://localhost:3000/products/13.json
 Content-Type: application/json
 
 {
-  "name": "",
-  "image_url": "?"
+  "name": ""
 }
 
 ### PRODUCTS DELETE
 
-DELETE http://localhost:3000/products/7.json
+DELETE http://localhost:3000/products/22.json
 
 
 ### USERS CREATE
@@ -45,8 +44,19 @@ Content-Type: application/json
   "password_confirmation": "ih8davi"
 }
 
+### USERS SHOW
 
+GET http://localhost:3000/users.json
 
+### SESSIONS CREATE
+
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "email": "davidbyrne@example.com",
+  "password": "password1"
+}
 
 
 
