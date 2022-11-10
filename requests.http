@@ -33,6 +33,18 @@ Content-Type: application/json
 DELETE http://localhost:3000/products/7.json
 
 
+### USERS CREATE
+
+POST http://localhost:3000/users.json
+Content-Type: application/json
+
+{
+  "name": "Tina Weymouth",
+  "email": "tinaweymouth@gmail.com",
+  "password": "ih8david",
+  "password_confirmation": "ih8davi"
+}
+
 
 
 
