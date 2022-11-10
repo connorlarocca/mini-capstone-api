@@ -34,6 +34,6 @@ class Product < ApplicationRecord
   end
 
   def total
-    sum = price * 1.09
+    price + tax
   end
 end

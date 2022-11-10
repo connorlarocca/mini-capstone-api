@@ -1,6 +1,7 @@
 ### PRODUCTS INDEX
 
 GET http://localhost:3000/products.json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjgxOTUxOTF9.F6azKxum9SHG49Mfid5BJeGGrWA8Io10hV-nI9M8tDo
 
 ### PRODUCTS SHOW
 
@@ -20,11 +21,11 @@ Content-Type: application/json
 
 ### PRODUCTS UPDATE
 
-PATCH http://localhost:3000/products/13.json
+PATCH http://localhost:3000/products/31.json
 Content-Type: application/json
 
 {
-  "name": ""
+  "name": "DID THIS WORK?"
 }
 
 ### PRODUCTS DELETE
@@ -44,9 +45,10 @@ Content-Type: application/json
   "password_confirmation": "ih8davi"
 }
 
-### USERS SHOW
+### USERS INDEX
 
 GET http://localhost:3000/users.json
+
 
 ### SESSIONS CREATE
 
@@ -56,6 +58,21 @@ Content-Type: application/json
 {
   "email": "davidbyrne@example.com",
   "password": "password1"
+}
+
+
+### PRODUCTS CREATE
+
+POST http://localhost:3000/products.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjozLCJleHAiOjE2Mjk5OTI4NjR9.G2ExsrDYn3oE0vJkvm4T6Po2GbNpH5cqTEaVPVuK_MA
+Content-Type: application/json
+
+
+{
+  "name": "Nintendo Switch",
+  "price": 299.99, 
+  "description": "The Nintendo Switch. What else do I need to say?",
+  "supplier_id": 1
 }
 
 
