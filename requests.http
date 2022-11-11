@@ -75,5 +75,22 @@ Content-Type: application/json
   "supplier_id": 1
 }
 
+### ORDER CREATE
 
+POST http://localhost:3000/orders.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjgyNzU2NTJ9.JQbQAvctvm_uTdaS_6o_YulNxLKD6aViPLhtCJCnOas
 
+{
+  "product_id": 5,
+  "quantity": 1
+}
+
+### ORDERS SHOW
+
+GET http://localhost:3000/orders/1.json
+Content-Type: application/json
+
+### ORDERS INDEX
+
+GET http://localhost:3000/orders.json
