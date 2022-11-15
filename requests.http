@@ -1,3 +1,7 @@
+@david_admin_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjgyODQ0ODd9.cZyOmOL22s-fWkhpeu0jVZ64aJLI2jZNM2OyqwEQSuw
+
+@tina-jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjgyODQ2Nzl9.l37uKC3xcegbDGyZjwxuuFl2yn9GWyfF2Ttc3PkzO58
+
 ### PRODUCTS INDEX
 
 GET http://localhost:3000/products.json
@@ -11,6 +15,7 @@ GET http://localhost:3000/products/5.json
 
 POST http://localhost:3000/products.json
 Content-Type: application/json
+Authorization: Bearer {{david_admin_jwt}}
 
 {
   "name": "Nintendo Switch",
@@ -21,7 +26,8 @@ Content-Type: application/json
 
 ### PRODUCTS UPDATE
 
-PATCH http://localhost:3000/products/31.json
+PATCH http://localhost:3000/products/33.json
+Authorization: Bearer {{tina-jwt}}
 Content-Type: application/json
 
 {
@@ -30,7 +36,9 @@ Content-Type: application/json
 
 ### PRODUCTS DELETE
 
-DELETE http://localhost:3000/products/22.json
+DELETE http://localhost:3000/products/33.json
+Authorization: Bearer {{tina-jwt}}
+Content-Type: application/json
 
 
 ### USERS CREATE
@@ -64,7 +72,7 @@ Content-Type: application/json
 ### PRODUCTS CREATE
 
 POST http://localhost:3000/products.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjozLCJleHAiOjE2Mjk5OTI4NjR9.G2ExsrDYn3oE0vJkvm4T6Po2GbNpH5cqTEaVPVuK_MA
+Authorization: Bearer {{tina-jwt}}
 Content-Type: application/json
 
 
@@ -79,18 +87,37 @@ Content-Type: application/json
 
 POST http://localhost:3000/orders.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjgyNzU2NTJ9.JQbQAvctvm_uTdaS_6o_YulNxLKD6aViPLhtCJCnOas
+# Authorization: Bearer yJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Njg2MjE5ODl9.z4lLU9343q1zPuPGJW15ZOK8zFr9FS4rZ1U3s2L8S7w
 
 {
-  "product_id": 5,
-  "quantity": 1
+  "user_id": 1,
+  "product_id": 5
 }
 
 ### ORDERS SHOW
 
-GET http://localhost:3000/orders/1.json
+GET http://localhost:3000/orders/9.json
 Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjgyODM3NTB9.51JySQCxL_2fBGg8P4Yuvz4QFKQW6888108Uz57fzWM
 
 ### ORDERS INDEX
 
 GET http://localhost:3000/orders.json
+Content-Type: application/json
+Authorization: Bearer 
+
+### CARTPRODUCTS REQUEST
+
+POST http://localhost:3000/cart.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Njg2MjM2NDB9.awOx6M-yfHs4LxXMPMWKRkUx2Dmq5eavZNgY3Pkyu-M
+
+{
+  "user_id": 1,
+  "product_id": 5,
+  "quantity": 1,
+  "status": "carted",
+  "order_id": 1
+
+}
+

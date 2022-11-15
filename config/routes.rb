@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get "/users", controller: "users", action: "index"
 
   ### SESSIONS
-  
+
   post "/sessions", controller: "sessions", action: "create"
 
   ### ORDERS
@@ -25,6 +25,12 @@ Rails.application.routes.draw do
   post "/orders", controller: "orders", action: "create"
 
   get "/orders/:id", controller: "orders", action: "show"
-  
+
   get "/orders", controller: "orders", action: "index"
+
+  ### CARTED PRODUCTS
+
+  get "/cart", controller: "carted_products", action: "index"
+
+  post "/cart", controller: "carted_products", action: "create"
 end

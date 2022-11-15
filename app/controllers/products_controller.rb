@@ -1,53 +1,13 @@
-# class ProductsController < ApplicationController
-#   def index
-#     pp current_user
-#     @products = Product.all
-#     render :index
-#   end
-
-#   def show
-#     @product = Product.find_by(id: params["id"])
-#     render :show
-#   end
-
-#   def create
-#     product = Product.new(name: params["name"], price: params["price"], description: params["description"], supplier_id: params["supplier_id"])
-#     product.save
-#     if product.save # :)
-#       render json: product.as_json
-#     else # :(
-#       render json: { errors: product.errors.full_messages }, status: 402
-#     end
-#     @product = product
-#   end
-
-#   def update
-#     product = Product.find_by(id: params["id"])
-
-#     product.name = params["name"] || product.name
-#     product.price = params["price"] || product.price
-#     product.description = params["description"] || product.description
-#     product.save
-#     if product.save # :)
-#       render json: product.as_json
-#     else # :(
-#       render json: { errors: product.errors.full_messages }, status: 402
-#     end
-#     @product = product
-#   end
-
-#   def destroy
-#     product = Product.find_by(id: params["id"])
-
-#     product.destroy
-#     render json: { message: "Item deleted." }
-#   end
-# end
-
 class ProductsController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show]
+
   def index
-    pp current_user
+    #pp current_user
     @products = Product.all
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+      @products = category.products
+    end
     render :index
   end
 
