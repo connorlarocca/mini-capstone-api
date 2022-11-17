@@ -1,6 +1,6 @@
-@david_admin_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjgyODQ0ODd9.cZyOmOL22s-fWkhpeu0jVZ64aJLI2jZNM2OyqwEQSuw
+@david_admin_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Njg2MzMzMDR9.39k3GQC2mPcvLYl-SoVhpRHXCqyUnxAHiHbX3mxSeEg
 
-@tina-jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjgyODQ2Nzl9.l37uKC3xcegbDGyZjwxuuFl2yn9GWyfF2Ttc3PkzO58
+@tina-jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Njg3ODY0NTF9.xqDjMXALeP3GJI8VibBcpYHVS44L8bI2QWEgZdiRjyc
 
 ### PRODUCTS INDEX
 
@@ -64,8 +64,8 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "davidbyrne@example.com",
-  "password": "password1"
+  "email": "tinaweymouth@example.com",
+  "password": "ih8david"
 }
 
 
@@ -87,11 +87,12 @@ Content-Type: application/json
 
 POST http://localhost:3000/orders.json
 Content-Type: application/json
-# Authorization: Bearer yJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Njg2MjE5ODl9.z4lLU9343q1zPuPGJW15ZOK8zFr9FS4rZ1U3s2L8S7w
+Authorization: Bearer {{tina-jwt}}
 
 {
   "user_id": 1,
-  "product_id": 5
+  "product_id": 5,
+  "quantity": 1
 }
 
 ### ORDERS SHOW
@@ -106,18 +107,30 @@ GET http://localhost:3000/orders.json
 Content-Type: application/json
 Authorization: Bearer 
 
-### CARTPRODUCTS REQUEST
+### CARTPRODUCTS CREATE
 
 POST http://localhost:3000/cart.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Njg2MjM2NDB9.awOx6M-yfHs4LxXMPMWKRkUx2Dmq5eavZNgY3Pkyu-M
+Authorization: Bearer {{tina-jwt}}
 
 {
-  "user_id": 1,
+  "user_id": 2,
   "product_id": 5,
   "quantity": 1,
-  "status": "carted",
+  "status": "removed",
   "order_id": 1
 
 }
+
+### CARTPRODUCTS INDEX
+
+GET http://localhost:3000/cart.json
+Content-Type: application/json
+Authorization: Bearer {{tina-jwt}}
+
+### CARTPRODUCTS DELETE
+
+DELETE http://localhost:3000/cart/6.json
+Content-Type: application/json
+Authorization: Bearer {{tina-jwt}}
 

@@ -33,4 +33,6 @@ Rails.application.routes.draw do
   get "/cart", controller: "carted_products", action: "index"
 
   post "/cart", controller: "carted_products", action: "create"
+
+  delete "/cart/:id", controller: "carted_products", action: "destroy"
 end
