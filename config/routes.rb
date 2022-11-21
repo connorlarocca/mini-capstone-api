@@ -36,3 +36,5 @@ Rails.application.routes.draw do
 
   delete "/cart/:id", controller: "carted_products", action: "destroy"
 end
+
+#askdlhgsdklfg
