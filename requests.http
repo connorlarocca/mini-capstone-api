@@ -1,5 +1,4 @@
-@david_admin_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Njg2MzMzMDR9.39k3GQC2mPcvLYl-SoVhpRHXCqyUnxAHiHbX3mxSeEg
-
+@david_admin_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzE4MTYwODF9.24BIdGuANMIUWeawTVZvqwDmXCNUVMIWWH18kVJDiR8
 @tina-jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Njg3ODY0NTF9.xqDjMXALeP3GJI8VibBcpYHVS44L8bI2QWEgZdiRjyc
 
 ### PRODUCTS INDEX
@@ -18,16 +17,16 @@ Content-Type: application/json
 Authorization: Bearer {{david_admin_jwt}}
 
 {
-  "name": "Nintendo Switch",
-  "price": 299.99, 
-  "description": "The Nintendo Switch. What else do I need to say?",
+  "name": "Fake Item",
+  "price": 2299.99, 
+  "description": "Fake Item, see above",
   "supplier_id": 1
 }
 
 ### PRODUCTS UPDATE
 
-PATCH http://localhost:3000/products/33.json
-Authorization: Bearer {{tina-jwt}}
+PATCH http://localhost:3000/products/35.json
+Authorization: Bearer {{david_admin_jwt}}
 Content-Type: application/json
 
 {
@@ -36,8 +35,8 @@ Content-Type: application/json
 
 ### PRODUCTS DELETE
 
-DELETE http://localhost:3000/products/33.json
-Authorization: Bearer {{tina-jwt}}
+DELETE http://localhost:3000/products/35.json
+Authorization: Bearer {{david_admin_jwt}}
 Content-Type: application/json
 
 
@@ -47,10 +46,11 @@ POST http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "name": "Tina Weymouth",
-  "email": "tinaweymouth@gmail.com",
-  "password": "ih8david",
-  "password_confirmation": "ih8davi"
+  "name": "New User",
+  "email": "newguy@example.com",
+  "password": "password",
+  "password_confirmation": "password",
+  "admin": true
 }
 
 ### USERS INDEX
@@ -64,15 +64,15 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "tinaweymouth@example.com",
-  "password": "ih8david"
+  "email": "davidbyrne@example.com",
+  "password": "password1"
 }
 
 
 ### PRODUCTS CREATE
 
 POST http://localhost:3000/products.json
-Authorization: Bearer {{tina-jwt}}
+Authorization: Bearer {{david_admin_jwt}}
 Content-Type: application/json
 
 
@@ -87,38 +87,39 @@ Content-Type: application/json
 
 POST http://localhost:3000/orders.json
 Content-Type: application/json
-Authorization: Bearer {{tina-jwt}}
+Authorization: Bearer {{david_admin_jwt}}
 
 {
   "user_id": 1,
-  "product_id": 5,
+  "product_id": 36,
   "quantity": 1
 }
 
 ### ORDERS SHOW
 
-GET http://localhost:3000/orders/9.json
+GET http://localhost:3000/orders/14.json
 Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjgyODM3NTB9.51JySQCxL_2fBGg8P4Yuvz4QFKQW6888108Uz57fzWM
+Authorization: Bearer {{david_admin_jwt}}
+
 
 ### ORDERS INDEX
 
 GET http://localhost:3000/orders.json
 Content-Type: application/json
-Authorization: Bearer 
+Authorization: Bearer {{david_admin_jwt}}
 
 ### CARTPRODUCTS CREATE
 
 POST http://localhost:3000/cart.json
 Content-Type: application/json
-Authorization: Bearer {{tina-jwt}}
+Authorization: Bearer {{david_admin_jwt}}
 
 {
   "user_id": 2,
   "product_id": 5,
   "quantity": 1,
   "status": "removed",
-  "order_id": 1
+  "order_id": 12
 
 }
 
@@ -126,11 +127,11 @@ Authorization: Bearer {{tina-jwt}}
 
 GET http://localhost:3000/cart.json
 Content-Type: application/json
-Authorization: Bearer {{tina-jwt}}
+Authorization: Bearer {{david_admin_jwt}}
 
 ### CARTPRODUCTS DELETE
 
 DELETE http://localhost:3000/cart/6.json
 Content-Type: application/json
-Authorization: Bearer {{tina-jwt}}
+Authorization: Bearer {{david_admin_jwt}}
 

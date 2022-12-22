@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
       category = Category.find_by(name: params[:category])
       @products = category.products
     end
-    render :index
+    render json: @products.as_json
   end
 
   def create
